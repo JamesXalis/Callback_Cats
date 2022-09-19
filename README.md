@@ -35,17 +35,17 @@ Open Source
 ---
 ## Images of Application
 
-### Start Screen 
+<!-- ### Start Screen  -->
 <!-- ![Start Screen](/assets/Images/StartScreen.JPG "Start Screen")   -->
 
-### Quiz Screen
+<!-- ### Quiz Screen -->
 <!-- ![Quiz Screen](/assets/Images/QuestionsPage.JPG "Quiz Screen")   -->
 
-### Finished Quiz Screen
+<!-- ### Finished Quiz Screen -->
 <!-- ![Finished Screen](/assets/Images/YouFinished.JPG "Finished Screen")   -->
 
-### Time's Up Screen
+<!-- ### Time's Up Screen -->
 <!-- ![Time's Up Screen](/assets/Images/TimesUp.JPG "Time's Up Screen")   -->
 
-### High Score Leaderboard Screen
+<!-- ### High Score Leaderboard Screen -->
 <!-- ![HighScore Leaderboard](/assets/Images/HighScore.JPG "HighScore Leaderboard")   -->
