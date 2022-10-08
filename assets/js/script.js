@@ -47,6 +47,20 @@ const quizData =[
 
 let currentQuiz = 0
 let score = 0
+function start(){
+    timeLeft = 60;
+    document.getElementById('timeLeft').innerHTML = timeLeft;
+
+    timer =setInterval(function(){
+        timeLeft--;
+        document.getElementById('timeLeft').innerHTML = timeLeft;
+        if (timeLeft <=0 ){
+            clearInterval();
+            endQuiz();
+        }
+    },1000)
+}
+
 
 function deselectAnswers(){
 
