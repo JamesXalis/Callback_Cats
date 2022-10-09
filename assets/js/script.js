@@ -61,6 +61,15 @@ function start(){
     },1000)
 }
 
+function endQuiz(){
+    clearInterval(timer);
+    let quizContent =`
+    <h2>Game Over!</h2>
+    <h3>Your final score is `+score+`/100</h3>
+    <input type='text' id= 'name' placehoder='Enter your name'>
+    <button onclick='setScore()'>Submit</button>`;
+    document.getElementById('quizBody').innerHTML = quizContent;
+}
 
 function deselectAnswers(){
 
