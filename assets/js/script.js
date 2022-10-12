@@ -1,53 +1,78 @@
-const $startbutton = document.querySelector("#starting-button");
-const $startingHeader = document.querySelector("#startingHeader");
-const $startingMessage = document.querySelector("#startingMessage");
-const $questionForm = document.querySelector("form");
-const $timer = document.querySelector("#timer");
-const $question = document.querySelector("#question");
-const $choice1 = document.querySelector("#choice1");
-const $choice2 = document.querySelector("#choice2");
-const $choice3 = document.querySelector("#choice3");
-const $choice4 = document.querySelector("#choice4");
-const $choi1 = document.querySelector("#choi1");
-const $choi2 = document.querySelector("#choi2");
-const $choi3 = document.querySelector("#choi3");
-const $choi4 = document.querySelector("#choi4");
-const $nextButton = document.querySelector("#next-button");
-const $quizResponse = document.querySelector("#quizResponse");
+const quizData =[
+    {
+        question: "Which language runs in a web browser?",
+        a: "Java",
+        b: "C",
+        c: "Python",
+        d: "javascript",
+        correct: "d",
+    },
+    {
+        question: "What does CSS stand for?",
+        a: "Central Style Sheets",
+        b: "Cascading Style Sheets",
+        c: "Cascading Simple Sheets",
+        d: "Cars SUVs Sailboats",
+        correct: "b",
+    },
+    {
+        question: "What does HTML stand for?",
+        a: "Hypertext Markup Language",
+        b: "Hypertext Markdown Language",
+        c: "Hyperloop Machine Language",
+        d: "Helicopters Terminals Motorboats Lamborginis",
+        correct: "a",
+    },
+    {
+        question: "What year was JavaScript launched?",
+        a: "1996",
+        b: "1995",
+        c: "1994",
+        d: "none of the above",
+        correct: "b",
+    },
+]
 
-const questions = ["All of the following are semantic HTML container elements except?",
-"CSS selectors include all of the following except?",
-"Which of the following is a property of an array in Javascript?",
-"What primitive data type is 'the number 4' in Javascript?",
-"What is the default flex-direction for flex containers in CSS?"];
-const answerChoices = [["Section","Article","Aside","Img"],
-["*","^","#id",".class"],
-["length","concat","slice","unshift"],
-["number","boolean","string","undefined"],
-["row","row-reverse","column","column-reverse"]];
+const quiz = document.getElementById ('quiz')
+const answerEls = document.querySelectorAll ('.answer')
+const questionEls = document.querySelectorAll ('.question')
+const a_text = document.getElementById('a_text')
+const b_text = document.getElementById('b_text')
+const c_text = document.getElementById('c_text')
+const d_text = document.getElementById('d_text')
+const submitBtn = document.getElementById('submit')
 
-let secondsLeft = 60;
-function setTimer(){
-    $timer.textContent = `Time Left: 60 seconds`;
-    $timer.style.color = `grey`;
-    let timerInterval = setInterval(function() {
-        secondsLeft = secondsLeft -1;
-        $timer.textContent = `Time Left: ${secondsLeft} seconds`;
+let currentQuiz = 0
+let score = 0
 
-        if(secondsLeft <=10){
-            $timer.style.color = `red`;
+loadQuiz()
+
+function loadQuiz(){
+    
+    deselectAnswers()
+
+    const currentQuizData = quizData[currentQuiz]
+
+    questionEls.innerText = currentQuizData.question
+    a_text.innerText = currentQuizData.a
+    b_text.innerText = currentQuizData.b
+    c_text.innerText = currentQuizData.c
+    d_text.innerText = currentQuizData.d
+
+}
+
+function deselectAnswers(){
+    answerEls.forEach(answerEls => answerEls.checked = false)
+
+}
+
+function getSelected() {
+    let answerEls
+    answerEls.forEach(answerEls => {
+        if(answerEls.checked){
+            answer=answerEls.id
         }
 
-        if(secondsLeft <= 0) {
-            clearInterval(timerInterval);
-            $timer.textContent = `Time Left: 0 seconds`;
-            scrollIndex = 0;
-            $questionForm.style.display = `none`;
-            $startingHeader.textContent = `Time's Up`;
-            document.querySelector(`#info`).textContent = `Click START button to try agian!`
-            $startingMessage.style.display = `inherit`;
-            secondsLeft = 60;
-        }
-    }
-    )
+    })
+    return answer
 }
