@@ -8,6 +8,48 @@
     <script defer src="./script.js"> </script>
 </head>
 <body>
-    
+    <header>
+        <div></div>
+        <h1>Callback Cats</h1>
+        <nav id="leaderboard"><p>High Scores</p><img src="./" alt=""></nav>
+    </header>
+    <main>
+        <p id="timer"></p> 
+        <section id="startingMessage">
+            <h2 id="startingHeader">Welcome to Callback Cats!</h2>
+            <p id="info">This multiple choice quiz will challenge your skills on the basics of HTML, CSS, and Javascript. Press the start button to begin. If you get a question wrong, feel free to try a different option and find the right answer before moving on. But note: a 60 second timer starts when you click start, and every wrong answer will shorten the timer by 6 seconds! Get ready!</p>
+            <button id="starting-button">START</button>
+        </section>
+        <form>
+            <h3 id="question"></h3>
+            <div class="choices" data-place="1">
+                <input type="radio" id="choice1" name="question" value="">
+                <p id="choi1"></p>
+            </div>
+            <div class="choices" data-place="2">
+                <input type="radio" id="choice2" name="question" value="">
+                <p id="choi2"></p>
+            </div>
+            <div class="choices" data-place="3">
+                <input type="radio" id="choice3" name="question" value="">
+                <p id="choi3"></p>
+            </div>
+            <div class="choices" data-place="4">
+                <input type="radio" id="choice4" name="question" value="">
+                <p id="choi4"></p>
+            </div>
+            <button id="next-button">Next</button>
+            <p id="quizResponse"></p>
+        </form>
+        <section id="highscore">
+            <h2>High Scores</h2>
+            <ul id="scoresList">
+            </ul>
+            <div>
+                <button id="clear">Clear</button>
+                <a id="home" href="./index.html">Home</a>
+            </div>
+        </section>
+    </main>
 </body>
 </html>
