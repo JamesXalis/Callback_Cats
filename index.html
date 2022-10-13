@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script defer src="./script.js"> </script>
+    <title>Callback Cats</title>
+    <script defer src="./assets/js/script.js"> </script>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
     <header>
         <div></div>
         <h1>Callback Cats</h1>
-        <nav id="leaderboard"><p>High Scores</p><img src="./" alt=""></nav>
+        <nav id="leaderboard"><p>High Scores</p></nav>
     </header>
     <main>
         <p id="timer"></p> 
@@ -21,27 +21,29 @@
             <p id="info">This multiple choice quiz will challenge your skills on the basics of HTML, CSS, and Javascript. Press the start button to begin. If you get a question wrong, feel free to try a different option and find the right answer before moving on. But note: a 60 second timer starts when you click start, and every wrong answer will shorten the timer by 6 seconds! Get ready!</p>
             <button id="starting-button">START</button>
         </section>
-        <form>
-            <h3 id="question"></h3>
-            <div class="choices" data-place="1">
-                <input type="radio" id="choice1" name="question" value="">
-                <p id="choi1"></p>
+        <div classs="quiz-container" id="quiz">
+            <div class="quiz-header">
+                <h2 id="question">Question Text</h2>
+                <ul>
+                    <li>
+                        <input type="radio" name="answer" id="a" class="answer">
+                        <label for="a" id="a_text">answer</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="b" class="answer">
+                        <label for="b" id="b_text">answer</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="c" class="answer">
+                        <label for="c" id="c_text">answer</label>
+                    </li>
+                    <li>
+                        <input type="radio" name="answer" id="d" class="answer">
+                        <label for="d" id="d_text">answer</label>
+                    </li>
+                </ul>
             </div>
-            <div class="choices" data-place="2">
-                <input type="radio" id="choice2" name="question" value="">
-                <p id="choi2"></p>
-            </div>
-            <div class="choices" data-place="3">
-                <input type="radio" id="choice3" name="question" value="">
-                <p id="choi3"></p>
-            </div>
-            <div class="choices" data-place="4">
-                <input type="radio" id="choice4" name="question" value="">
-                <p id="choi4"></p>
-            </div>
-            <button id="next-button">Next</button>
-            <p id="quizResponse"></p>
-        </form>
+        </div>
         <section id="highscore">
             <h2>High Scores</h2>
             <ul id="scoresList">
