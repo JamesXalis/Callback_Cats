@@ -47,6 +47,7 @@ const quizData =[
 
 let currentQuiz = 0
 let score = 0
+
 function start(){
     timeLeft = 60;
     document.getElementById('timeLeft').innerHTML = timeLeft;
@@ -69,6 +70,12 @@ function endQuiz(){
     <input type='text' id= 'name' placehoder='Enter your name'>
     <button onclick='setScore()'>Submit</button>`;
     document.getElementById('quizBody').innerHTML = quizContent;
+}
+
+function setScore(){
+    localStorage.setItem('highScore', score);
+    localStorage.setItem('highScoreInput', document.getElementById('name').value);
+    getScore();
 }
 
 function deselectAnswers(){
