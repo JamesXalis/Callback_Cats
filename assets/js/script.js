@@ -78,6 +78,15 @@ function setScore(){
     getScore();
 }
 
+function getScore(){
+    let quizContent=`
+    <h2>`+localStorage.getItem('highScoreInput')+`'x highscore is:</h2>
+    <h3>`+ localStoreage.getitem('highScore')+`</h3>
+    <button onclick='clearScore()'>Clear Score</button><button onclick='resetQuiz()'>Try Again</button>`;
+    document.getElementsById('quizBody').innerHTML = quizContent;
+}
+
+
 function deselectAnswers(){
 
     answerEls.forEach(answerEls => answerEls.checked = false)
