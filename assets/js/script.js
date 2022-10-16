@@ -86,6 +86,11 @@ function getScore(){
     document.getElementsById('quizBody').innerHTML = quizContent;
 }
 
+function clearScore(){
+    localStorage.setItem('highScore','');
+    localStorage.setItem('highScoreInput','');
+    resetQuiz();
+}
 
 function deselectAnswers(){
 
