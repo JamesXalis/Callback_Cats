@@ -92,6 +92,25 @@ function clearScore(){
     resetQuiz();
 }
 
+function resetQuiz(){
+    clearInterval(timer);
+    socre = 0;
+    currentQuestion =-1;
+    timeLeft =0;
+    timer= null;
+
+    document.getElementById('timeLeft').innerHTML = timeLeft;
+
+    let quizContent = `
+    <h2>Welcome to Callback Cats!</h2>
+    <p>Try to answer the follwoing code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+    <h3>
+        Click to Start!
+    </h3>
+    <button onclick="start()">Start!</button>`
+    document.getElementById('quizBody').innerHTML = quizContent;
+}
+
 function deselectAnswers(){
 
     answerEls.forEach(answerEls => answerEls.checked = false)
