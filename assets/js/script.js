@@ -111,6 +111,11 @@ function resetQuiz(){
     document.getElementById('quizBody').innerHTML = quizContent;
 }
 
+function incorrect(){
+    timeLeft -=10;
+    nextQuestion();
+}
+
 function deselectAnswers(){
 
     answerEls.forEach(answerEls => answerEls.checked = false)
