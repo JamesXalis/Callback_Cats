@@ -116,6 +116,12 @@ function incorrect(){
     nextQuestion();
 }
 
+function correct(){
+    score += 20;
+    nextQuestion();
+}
+
+
 function deselectAnswers(){
 
     answerEls.forEach(answerEls => answerEls.checked = false)
