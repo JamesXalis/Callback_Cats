@@ -121,53 +121,76 @@ function correct(){
     nextQuestion();
 }
 
+function nextQuestion(){
+    currentQuestion++;
 
-function deselectAnswers(){
+    if(currentQuestion >quizQuestions.length -1 ){
+        endQuiz ();
+        return
+    }
 
-    answerEls.forEach(answerEls => answerEls.checked = false)
-}
+    let quizContent =`
+    <h2>`+quizQuestions[currentQuestion].question+`</h2>`
 
-function loadQuiz(){
-    
-    deselectAnswers()
-    
-    const currentQuizData = quizData[currentQuiz]
-    
-    questionEls.innerText = currentQuizData.question
-    a_text.innerText = currentQuizData.a
-    b_text.innerText = currentQuizData.b
-    c_text.innerText = currentQuizData.c
-    d_text.innerText = currentQuizData.d
-    
-}
-
-function getSelected() {
-    let answerEls
-    answerEls.forEach(answerEls => {
-        if(answerEls.checked){
-            answer=answerEls.id
+    for(let i = 0; i < quizQuestions[currentQuestion].choices.length; i++){
+        let buttonCode = `<button onclick="[ANS]">[CHOICE]</button>;`
+        buttonCode= buttonCode.replace ("[CHOICE]", quizQuestions[currentQuestion].choices[1]);
+        if (quizQuestions[currentQuestion].choices[i]){
+            buttonCode= buttonCode.replace("[ANS]","correct()");
+        }else {
+            buttonCode = buttonCode.replace("[ANS]", "incorrect()");
         }
-        
-    })
-    return answer
+        quizContent += buttonCode
+    }
+    document.getElementById("quizBody").innerHTML = quizContent;
 }
 
-startBtn.addEventListener ('click'), () =>{
-    const answer = getSelected()
-    if(answer){
-        if (answer === quizData[currentQuiz].correct){
-            score++
-        }
+// function deselectAnswers(){
+
+//     answerEls.forEach(answerEls => answerEls.checked = false)
+// }
+
+// function loadQuiz(){
+    
+//     deselectAnswers()
+    
+//     const currentQuizData = quizData[currentQuiz]
+    
+//     questionEls.innerText = currentQuizData.question
+//     a_text.innerText = currentQuizData.a
+//     b_text.innerText = currentQuizData.b
+//     c_text.innerText = currentQuizData.c
+//     d_text.innerText = currentQuizData.d
+    
+// }
+
+// function getSelected() {
+//     let answerEls
+//     answerEls.forEach(answerEls => {
+//         if(answerEls.checked){
+//             answer=answerEls.id
+//         }
         
-        currentQuiz ++
+//     })
+//     return answer
+// }
+
+// startBtn.addEventListener ('click'), () =>{
+//     const answer = getSelected()
+//     if(answer){
+//         if (answer === quizData[currentQuiz].correct){
+//             score++
+//         }
         
-        if(currentQuiz < quizData.length){
-            loadQuiz()
-        }else{
-            quiz.innerHTML =`
-            <h2>You answered ${score}/${quizData.length} questions correctly</h2>
-            <button on click="location.reload()">Reload</button>
-            `
-        }
-    }    
-}
+//         currentQuiz ++
+        
+//         if(currentQuiz < quizData.length){
+//             loadQuiz()
+//         }else{
+//             quiz.innerHTML =`
+//             <h2>You answered ${score}/${quizData.length} questions correctly</h2>
+//             <button on click="location.reload()">Reload</button>
+//             `
+//         }
+//     }    
+// }
