@@ -1,59 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Callback Cats</title>
-    <script defer src="./assets/js/script.js"> </script>
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Callback Cats</title>
+        <script defer src="./assets/js/script.js"> </script>
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
+
 <body>
-    <header>
-        <div>
-            <!-- <h1>Callback Cats</h1>
-            <nav id="leaderboard"><p>High Scores</p></nav> -->
+
+    <div id="nav">
+
+        <div class="left">
+            <a onclick="getScore()" href="#">
+                <h4>View Highscore</h4>
+            </a>
         </div>
-    </header>
-    <main>
-        <p id="timer"></p> 
-        <section id="startingMessage">
-            <h2 id="startingHeader">Welcome to Callback Cats!</h2>
-            <p id="info">This multiple choice quiz will challenge your skills on the basics of HTML, CSS, and Javascript. Press the start button to begin. If you get a question wrong, feel free to try a different option and find the right answer before moving on. But note: a 60 second timer starts when you click start, and every wrong answer will shorten the timer by 6 seconds! Get ready!</p>
-            <button id="starting-button">START</button>
-        </section>
-        <div classs="quiz-container" id="quiz">
-            <div class="quiz-header">
-                <h2 id="question">Question Text</h2>
-                <ul>
-                    <li>
-                        <input type="radio" name="answer" id="a" class="answer">
-                        <label for="a" id="a_text">answer</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="answer" id="b" class="answer">
-                        <label for="b" id="b_text">answer</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="answer" id="c" class="answer">
-                        <label for="c" id="c_text">answer</label>
-                    </li>
-                    <li>
-                        <input type="radio" name="answer" id="d" class="answer">
-                        <label for="d" id="d_text">answer</label>
-                    </li>
-                </ul>
-            </div>
+
+        <div class="right">
+            <h4>Time: <span id="timeLeft">0</span></h4>
         </div>
-        <section id="highscore">
-            <h2>High Scores</h2>
-            <ul id="scoresList">
-            </ul>
-            <div>
-                <button id="clear">Clear</button>
-                <a id="home" href="./index.html">Home</a>
-            </div>
-        </section>
-    </main>
+    </div>
+
+    <div id="quiz">
+        <div id="quizBody">
+            <h1>
+                Welcome to Callback Cats!
+            </h1>
+
+            <p>This multiple choice quiz will challenge your skills on the basics of HTML, CSS, and Javascript. Press the start button to begin. If you get a question wrong, feel free to try a different option and find the right answer before moving on. But note: a 60 second timer starts when you click start, and every wrong answer will shorten the timer by 10 seconds! Get ready!</p>
+
+            <h3>
+                Click to play!
+            </h3>
+            <button onclick="start()">Start Quiz!</button>
+        </div>
+    </div>
 </body>
+
+
 </html>

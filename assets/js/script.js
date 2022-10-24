@@ -1,52 +1,43 @@
-const quiz = document.getElementById ('quiz')
-const answerEls = document.querySelectorAll ('.answer')
-const questionEls = document.querySelectorAll ('.question')
-const a_text = document.getElementById('a_text')
-const b_text = document.getElementById('b_text')
-const c_text = document.getElementById('c_text')
-const d_text = document.getElementById('d_text')
-const submitBtn = document.getElementById('submit')
-const startBtn = document.getElementById('starting-button')
+// const quiz = document.getElementById ('quiz')
+// const answerEls = document.querySelectorAll ('.answer')
+// const questionEls = document.querySelectorAll ('.question')
+// const a_text = document.getElementById('a_text')
+// const b_text = document.getElementById('b_text')
+// const c_text = document.getElementById('c_text')
+// const d_text = document.getElementById('d_text')
+// const submitBtn = document.getElementById('submit')
+// const startBtn = document.getElementById('starting-button')
 
 
 const quizData =[
     {
         question: "Which language runs in a web browser?",
-        a: "Java",
-        b: "C",
-        c: "Python",
-        d: "javascript",
-        correct: "d",
+        choices:['java','c','python','javascript'],
+        answer: 'javascript'
     },
     {
         question: "What does CSS stand for?",
-        a: "Central Style Sheets",
-        b: "Cascading Style Sheets",
-        c: "Cascading Simple Sheets",
-        d: "Cars SUVs Sailboats",
-        correct: "b",
+        choices:['Central Style Sheets','Cascading Style Sheets','Cascading Simple Sheets','Cars SUVS Sailboats'],
+        answer: 'Cascading Style Sheets'
     },
     {
         question: "What does HTML stand for?",
-        a: "Hypertext Markup Language",
-        b: "Hypertext Markdown Language",
-        c: "Hyperloop Machine Language",
-        d: "Helicopters Terminals Motorboats Lamborginis",
-        correct: "a",
+        choices:['Hypertext Markup Language','Hypertext Markdown Language','Hyperloop Machine Language','Helicopters Terminals Moterboats Lamborginis'],
+        answer: 'Hypertext Markup Language'
     },
     {
         question: "What year was JavaScript launched?",
-        a: "1996",
-        b: "1995",
-        c: "1994",
-        d: "none of the above",
-        correct: "b",
+        choices:['1996','1995','1994','none of the above'],
+        answer: '1995'
     },
 ]
 
 
 let currentQuiz = 0
-let score = 0
+let score = 0;
+let currentQuestion = -1;
+let timeLeft = 0;
+let timer;
 
 function start(){
     timeLeft = 60;
@@ -59,7 +50,8 @@ function start(){
             clearInterval();
             endQuiz();
         }
-    },1000)
+    },1000);
+    nextQuestion();
 }
 
 function endQuiz(){
@@ -124,18 +116,18 @@ function correct(){
 function nextQuestion(){
     currentQuestion++;
 
-    if(currentQuestion >quizQuestions.length -1 ){
+    if(currentQuestion >quizData.length -1 ){
         endQuiz ();
         return
     }
 
     let quizContent =`
-    <h2>`+quizQuestions[currentQuestion].question+`</h2>`
-
-    for(let i = 0; i < quizQuestions[currentQuestion].choices.length; i++){
+    <h2>`+quizData[currentQuestion].question+`</h2>`
+    
+    for(let i = 0; i < quizData[currentQuestion].choices.length; i++){
         let buttonCode = `<button onclick="[ANS]">[CHOICE]</button>;`
-        buttonCode= buttonCode.replace ("[CHOICE]", quizQuestions[currentQuestion].choices[1]);
-        if (quizQuestions[currentQuestion].choices[i]){
+        buttonCode= buttonCode.replace ("[CHOICE]", quizData[currentQuestion].choices[1]);
+        if (quizData[currentQuestion].choices[i]){
             buttonCode= buttonCode.replace("[ANS]","correct()");
         }else {
             buttonCode = buttonCode.replace("[ANS]", "incorrect()");
