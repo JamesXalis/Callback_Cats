@@ -126,7 +126,7 @@ function nextQuestion(){
     
     for(let i = 0; i < quizData[currentQuestion].choices.length; i++){
         let buttonCode = `<button onclick="[ANS]">[CHOICE]</button>;`
-        buttonCode= buttonCode.replace ("[CHOICE]", quizData[currentQuestion].choices[1]);
+        buttonCode= buttonCode.replace ("[CHOICE]", quizData[currentQuestion].choices[i]);
         if (quizData[currentQuestion].choices[i]){
             buttonCode= buttonCode.replace("[ANS]","correct()");
         }else {
